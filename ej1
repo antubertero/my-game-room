@@ -1,0 +1,82 @@
+package ejercicio.de.la.guia.pkg11;
+
+import java.util.Scanner;
+public class EjercicioDeLaGuia11 {
+// programa principal
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Ingrese una secuencia de caracteres: ");
+        String secuencia = sc.nextLine();
+
+        // Convertir la secuencia ingresada a minúsculas para simplificar la codificación
+        secuencia = secuencia.toLowerCase();
+
+        // Llamar al subprograma para codificar la secuencia y almacenar el resultado
+            // "String" se define el tipo de dato 
+            // "secuencia_codificada" es el nombre  de la variable que va adevolver el sub programa
+            // "codificar_secuencia" es el nombre del sub programa para analizar, se llama.  
+            // "(secuencia)" es la variable que se quiere analizar 
+        String secuencia_codificada = codificar_secuencia(secuencia);
+
+        // Mostrar por pantalla la secuencia codificada resultante se llama la variable "secuencia_codificada"
+        System.out.println("Secuencia codificada: " + secuencia_codificada);
+    }
+    
+    //Sub Programa 
+    
+            //  "public static" por ahora tiene este formato siempre
+            //  String tipo de dato de la variable del retortno de la funcion , se declara siempore como si fuera una nueva variable.
+                        // en el caso que diga "void" el programa no devuelve ningun valor 
+            // "codificar_secuencia" nombre del programa se llamara desde la pagina principal mediante este nombre
+            /* 
+               "(String secuencia)" parametros que recibe la funcion  
+                "String" tipo del dato que se analiza "secuencia" argumentos hace uso de dichos valores recibidos como sea necesario
+            */ 
+    
+    public static String codificar_secuencia(String secuencia) {
+        // Crear una variable para almacenar la secuencia codificada
+        String secuencia_codificada = "";
+
+        // Recorrer la secuencia caracter por caracter
+        for (int i = 0; i < secuencia.length(); i++) { // "length" Retorna la longitud de la cadena
+            char caracter = secuencia.charAt(i); // "charAt" Retorna el carácter especificado en la posición index (i)
+
+
+            // Verificar si el caracter es una vocal y reemplazarlo por el carácter correspondiente
+            switch (caracter) {
+                case 'a':
+                    secuencia_codificada += "@"; // reemplazar 'a' por '@'
+                    break;
+                case 'e':
+                    secuencia_codificada += "#"; // reemplazar 'e' por '#'
+                    break;
+                case 'i':
+                    secuencia_codificada += "$"; // reemplazar 'i' por '$'
+                    break;
+                case 'o':
+                    secuencia_codificada += "%"; // reemplazar 'o' por '%'
+                    break;
+                case 'u':
+                    secuencia_codificada += "*"; // reemplazar 'u' por '*'
+                    break;
+                default:
+                    // Si el caracter no es una vocal, agregarlo a la secuencia codificada sin cambios
+                    secuencia_codificada += caracter;
+                    break;
+            }
+        }
+
+        // Devolver la secuencia codificada resultante
+        // retorno de la funcion 
+        return secuencia_codificada;
+    }
+}
+/*
+El programa comienza pidiendo al usuario que ingrese una secuencia de caracteres, que se almacena en la variable secuencia. 
+Luego se convierte a minúsculas para simplificar la codificación. A continuación, se llama al subprograma codificar_secuencia 
+pasando como argumento la secuencia ingresada por el usuario. 
+El subprograma recorre la secuencia caracter por caracter, y para cada vocal encontrada, la reemplaza por 
+el carácter correspondiente según la tabla dada. Para los caracteres que no son vocales, los agrega a 
+la secuencia codificada sin cambios.
+Finalmente, el programa muestra por pantalla la secuencia codificada resultante.
+*/
