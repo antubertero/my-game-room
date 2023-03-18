@@ -1,0 +1,73 @@
+package matrizMagica;
+//La función magic, recibe un valor mediante el cual genera una matriz cuadrada que 
+//al sumar el valor de sus renglones, columnas o diagonales dan el mismo valor
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author antub
+ */
+public class Tp4Ej6 {
+
+    
+    public static void main(String[] args) {
+        Scanner leer = new Scanner(System.in);
+        int [][] matrizA = new int [3][3];
+        int[] sumaFilas = new int[3];
+        int[] sumaColumnas = new int[3];
+        int[] sumaDiagonales = new int[3];
+        int contador = 0, contador1; 
+        boolean esMagico = true;
+        
+        for (int i = 0 ; i< 3; i++){
+            contador = contador +1 ;
+            System.out.println("intresar los valores de la fila " + contador );
+            contador1=0;
+            for (int j = 0 ; j < 3 ; j++){
+                contador1 = contador1 +1;
+                System.out.println(" y columa " + contador1);
+                matrizA[i][j] = leer.nextInt();
+                
+            } 
+        }
+        // calculamo las sumas de las filas, las columans y las diagonales 
+        
+         for (int i = 0 ; i<3 ; i++){
+            
+            for (int j = 0 ; j < 3 ; j++){
+                sumaFilas[i] +=  matrizA[i][j] ;
+                sumaColumnas[j] += matrizA[i][j] ;
+             
+                if (i == j){
+                    
+                    sumaDiagonales[0] += matrizA[i][j] ;
+                
+                }
+                if(i + j == 2){
+                    sumaDiagonales[1] += matrizA[i][j] ;
+                }         
+            }    
+        }
+        
+         // comprobamos que las sumas de filasm columnas y diagonales son iguales 
+         
+         int sumaMagica = sumaFilas[0];
+         
+         for (int i = 0 ; i <3 ; i++){
+             if (sumaFilas[i] != sumaMagica || sumaColumnas[i] != sumaMagica || sumaDiagonales[0] != sumaMagica || sumaDiagonales[1] != sumaMagica){
+                esMagico = false; 
+                break;
+             }     
+         }
+         
+         // mostrar resultado 
+         
+         if (esMagico){
+             System.out.println("el cuadrado es magico ");
+        
+    }else { 
+             System.out.println("el cuadrado NO es magico ");
+         }
+    }  
+}
